@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main(void) {
+int main() {
     int x1 = -10, x2 = 10, C, n, xg, fg;
 
     cout << "Enter the value of C: " ;
