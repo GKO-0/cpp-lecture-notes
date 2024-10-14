@@ -9,7 +9,7 @@ int main(void) {
     cin >> a >> b >> c;
     cout << "a = " << a << ", b = " << b << ", c = " << c << endl;
     cout << "a*b = " << a*b << endl;
-    cout << "a/b = " << static_cast<float>(a)/b << endl;
+    cout << "a/b = " << (float)a/(float)b << endl;
     cout << "a+b+c = " << a+b+c << endl;
     return 0;
 }

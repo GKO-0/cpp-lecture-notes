@@ -1,27 +1,35 @@
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 using namespace std;
 
 int main() {
-    int x1 = -10, x2 = 10, C, n, xg, fg;
+    float xl = -10, xu = 10, xg, fg;
+    int n, C;
 
     cout << "Enter the value of C: " ;
     cin >> C;
-    cout << "Number of iterations: ";
-    cin >> n;
-    int f1 = x1^3 + C*x1 -10;
-    int f2 = x2^3 + C*x2 -10;
+
+    float f1;
+    float f2;
     
-    while ( (x2-x1) > 10^-6) {
+    while ( (xu-xl) > pow(10, -6)) {
+    xg = (xl+xu)/2;
+    fg = pow(xg,3) + C*xg -10;
+    f1 = pow(xl,3) + C*xl -10;
+    f2 = pow(xu,3) + C*xu -10;
 
-    xg = (x1/x2)/2;
-    fg = xg^3 + C*xg -10;
-    if (fg < 0) {
-        x1 = xg;
-    } else if (fg > 0) {
-        x2 = xg;
+    if ((fg < 0) == (f1 > 0)) {
+        xu = xg;
+    } 
+    else if ((fg > 0) == (f2 < 0)) {
+        xl = xg;
     }
+    
+    n++;
     }
 
-    cout << "Found root x to be between " << fg << "and " << fg;
+    cout << "Number of iterations: " << n << endl;
+    cout << "Found root x to be between " << fg << " and " << fg;
     return 0;
 }
